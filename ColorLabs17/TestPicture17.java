@@ -45,10 +45,10 @@ public class TestPicture17
      pixels = ferris1.getPixels();
     
      //how many pixels or how large array
-    System.out.println("This is a large array"+pixels.length  );
+        //System.out.println("This is a large array"+pixels.length  );
 
 
-    /**/
+    /*  
         //access each index, array notation
     System.out.println(pixels[17]);
     //access each pixel, pic.method.getPixel
@@ -64,69 +64,91 @@ public class TestPicture17
     
     spot.setColor(Color.yellow); 
     ferris1.explore();
-/*
+
     pixels[17].setColor(Color.blue);
     spot.setColor(new Color(252,252,252));
     pixels[500034].setColor(Color.blue);
 
     ferris1.explore();
-/*
+    */
    // loop to access indexes of array or collection
-
+    /*
     //for each loop spot  is a ?
-    for (Pixel spot : pixels)
-    System.out.println( spot );
-
-
-   
- /**/
-
- /**
-  * Method to clear red from picture
-  * @param none
-  * @return none
-  */
- /*
-    for (Pixel pixelObj : pixels)
-        {
-            //set the red value of the current pixel to the new value
-           
-
-        }
-    ferris1.explore();
-    
-/**/
- /**
-  * Method to reduce red from picture by a factor of n
-  * @param none
-  * @return none
-  */
-
-/*
-int value;
-final double  FACTOR = .5;
-    for (Pixel pixelObj : pixels)
+    int red;
+    for (Pixel spot1 : pixels)
     {
-
-        //get the redvalue
-        value = pixelObj.getRed();
-        //System.out.println(value);
-
-        //decrease the red value by 50%
-        
-        //set the red value of the current pixel to the new value
-        
-
+        //System.out.println( spot );
+        red = spot1.getRed();
+        red = (int)(red*.25); 
+        spot1.setRed(red); 
+    } 
+    
+    int blue; 
+    for (Pixel spot1 : pixels)
+    {
+        //System.out.println( spot );
+        blue = spot1.getBlue();
+        blue = (int)(Math.random()*  blue); 
+        spot1.setBlue(blue); 
     }
-    // use new picture when changing or it will make changes to 
-    // pic you already changed
-    ferris1.explore();
-    ferris2.explore();
-
-  /**/ 
-    //write/save a picture as a file
-    ferris1.write("images/ferris11.jpg");
-
-    /**/
+    
+         */
+    int green;
+    int count = 0; 
+    for (Pixel spot1 : pixels)
+    {
+        if (count%20 == 0)
+            spot1.setColor(Color.yellow); 
+        count++; 
+    }
+    ferris1.explore(); 
+    
+         /**
+          * Method to clear red from picture
+          * @param none
+          * @return none
+          */
+         /*
+            for (Pixel pixelObj : pixels)
+                {
+                    //set the red value of the current pixel to the new value
+                   
+        
+                }
+            ferris1.explore();
+            
+        /**/
+         /**
+          * Method to reduce red from picture by a factor of n
+          * @param none
+          * @return none
+          */
+        
+        /*
+        int value;
+        final double  FACTOR = .5;
+            for (Pixel pixelObj : pixels)
+            {
+        
+                //get the redvalue
+                value = pixelObj.getRed();
+                //System.out.println(value);
+        
+                //decrease the red value by 50%
+                
+                //set the red value of the current pixel to the new value
+                
+        
+            }
+            // use new picture when changing or it will make changes to 
+            // pic you already changed
+            ferris1.explore();
+            ferris2.explore();
+        
+          /**/ 
+            //write/save a picture as a file
+            ferris1.write("images/ferris11.jpg");
+        
+            /**/
   }//main
 }//class
