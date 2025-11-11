@@ -102,6 +102,7 @@ public class TestPicture17
         count++; 
     }
     ferris1.explore(); 
+    ferris1.write("images/SFTry1.jpg"); 
     
          /**
           * Method to clear red from picture

@@ -32,13 +32,13 @@ public class SheparFaireyLab
          Picture me2 = new Picture("images/beach.jpg");
          
          /**
-          * method 1 change
-          * 
+          * method 1 change GRAYSCALE
+          * if (avg < 75)... and so on
           */
          
          /**
           * method 2 change
-          * 
+          * find min and max, then do same thing as above 
           */
          
          /**

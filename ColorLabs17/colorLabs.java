@@ -17,7 +17,7 @@ public class colorLabs
         Pixel [] pixels; 
         
         //#1: adjusting blue
-        /*
+        
         pixels = p.getPixels(); 
         
         int blue; 
@@ -29,13 +29,13 @@ public class colorLabs
         }
         
         p.explore(); 
-        */
+        
        
         //#2: negate
-        /*
+        
         pixels = p2.getPixels(); 
         
-        int blue, red, green; 
+        int red, green; 
         for (Pixel spot : pixels)
         {
             blue = spot.getBlue(); 
@@ -56,11 +56,11 @@ public class colorLabs
         }
         
         p2.explore(); 
-        */
+        
        
        
         //#3: grayscale 
-        /*
+        
         pixels = p3.getPixels(); 
         
         int grey;
@@ -73,13 +73,13 @@ public class colorLabs
         }
         
         p3.explore();
-        */
+        
        
         //#4: darken
-        /*
+        
         pixels = p4.getPixels(); 
         
-        int red, green, blue; 
+        //int red, green, blue; 
         for (Pixel spot : pixels)
         {
             blue = spot.getBlue(); 
@@ -100,6 +100,41 @@ public class colorLabs
         }
         
         p4.explore(); 
-        */ 
+        
+       
+        //#5: change color 
+          
+        pixels = p5.getPixels(); 
+        // red, green, blue; 
+        for (Pixel spot : pixels) 
+        {
+            red = spot.getRed() + 50; 
+            blue = spot.getBlue() - 50; 
+            green = spot.getGreen() + 100; 
+            spot.setRed(red); 
+            spot.setBlue(blue);
+            spot.setGreen(green); 
+        }
+        p5.explore(); 
+        
+        
+        //#6: find the rgb of your eyes/hair/face change all pixels that are close to that color (+ or – 10,15,20)
+        
+        pixels = p6.getPixels(); 
+        
+        Pixel spotSwan = p6.getPixel(270, 213); 
+        System.out.print(spotSwan.getColor()); 
+        //int red, green, blue;
+        
+        for (Pixel spot: pixels)
+        {
+            if (Math.abs(spot.getRed() - spotSwan.getRed()) < 75 && Math.abs(spot.getGreen() - spotSwan.getGreen()) < 75
+            && Math.abs(spot.getBlue() - spotSwan.getBlue()) < 75 )
+            {
+                blue = spot.getBlue() + 100; 
+                spot.setBlue(blue); 
+            }
+        }
+        p6.explore(); 
     }
 }
