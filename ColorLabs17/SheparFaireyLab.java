@@ -13,10 +13,6 @@ public class SheparFaireyLab
 {
     public static void main(String[] args)
     {
-        
-         //opens selfie picture 
-          /**/
-         
          //relative path
          Picture apic = new Picture("images\\amy.jpg");
          //change with selfie picture
@@ -27,10 +23,10 @@ public class SheparFaireyLab
          apic.explore(); 
          Pixel [] pixels; 
          
-         //#1: grayscale
+         //#1: grayscale testing
          pixels = me.getPixels(); 
-         
          int grey; 
+         /*
          for (Pixel spot : pixels) 
          {
              grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
@@ -56,18 +52,89 @@ public class SheparFaireyLab
                 spot.setRed(230); 
             }
          }
-         
+        
          me.explore(); 
+         */
          
-         /**
-          * method 2 change
-          * find min and max, then do same thing as above 
-          */
+         //#2: balance trial 
+         /* 
+         for (Pixel spot : pixels) 
+         {
+            grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
+            if (grey <= 70) {
+                spot.setBlue(86); 
+                spot.setGreen(42);
+                spot.setRed(30);
+            } else if (grey <= 130) {
+                spot.setBlue(0);
+                spot.setGreen(0);
+                spot.setRed(139);
+            } else if (grey <= 180) {
+                spot.setBlue(206); 
+                spot.setGreen(173); 
+                spot.setRed(107); 
+            } else {
+                spot.setBlue(226); 
+                spot.setGreen(255);
+                spot.setRed(244); 
+            }
+         }
+         me.explore(); 
+         */
          
-         /**
-          * custom color palette
-          */
-
+         //#3: an intense approach
+         /*
+         int min = 5, max = 255; //very similar to original
+         for (Pixel spot : pixels)
+         {
+            grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
+            if (grey <= 70) {
+                spot.setBlue(86); 
+                spot.setGreen(42);
+                spot.setRed(30);
+            } else if (grey <= 130) {
+                spot.setBlue(0);
+                spot.setGreen(0);
+                spot.setRed(139);
+            } else if (grey <= 180) {
+                spot.setBlue(206); 
+                spot.setGreen(173); 
+                spot.setRed(107); 
+            } else {
+                spot.setBlue(226); 
+                spot.setGreen(255);
+                spot.setRed(244); 
+            }
+         }
+         me.explore(); */
          
-    }//main       
-}//class
+         //#4: custom!
+         
+         for (Pixel spot : pixels)
+         {
+            grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
+            if (grey <= 50) {
+                spot.setBlue(52); 
+                spot.setGreen(25);
+                spot.setRed(1);
+            } else if (grey <= 130) {
+                spot.setBlue(40);
+                spot.setGreen(16);
+                spot.setRed(118);
+            } else if (grey <= 180) {
+                spot.setBlue(106); 
+                spot.setGreen(167); 
+                spot.setRed(208); 
+            } else if (grey <= 200) {
+                spot.setBlue(157); 
+                spot.setGreen(213); 
+                spot.setRed(178);  
+            } else {
+                spot.setBlue(226); 
+                spot.setGreen(255);
+                spot.setRed(244); 
+            }
+         }
+         me.explore(); 
+    }  
+}
