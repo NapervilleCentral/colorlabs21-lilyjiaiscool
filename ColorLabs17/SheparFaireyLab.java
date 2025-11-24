@@ -135,5 +135,6 @@ public class SheparFaireyLab
             }
          }
          me.explore(); 
+         me.write("images/sf5.jpg");
     }  
 }
