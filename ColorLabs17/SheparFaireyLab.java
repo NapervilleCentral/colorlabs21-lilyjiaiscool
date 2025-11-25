@@ -25,6 +25,7 @@ public class SheparFaireyLab
          //#1: grayscale testing
          pixels = me.getPixels(); 
          int grey; 
+         
          /*
          for (Pixel spot : pixels) 
          {
@@ -53,10 +54,11 @@ public class SheparFaireyLab
          }
         
          me.explore(); 
-         */
+         me.write("images/sf1.jpg");
          
+         */
          //#2: balance trial 
-         /* 
+         /*
          for (Pixel spot : pixels) 
          {
             grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
@@ -79,7 +81,9 @@ public class SheparFaireyLab
             }
          }
          me.explore(); 
+         me.write("images/sf2.jpg");
          */
+         
          
          //#3: an intense approach
          /*
@@ -109,6 +113,70 @@ public class SheparFaireyLab
          
          //#4: custom!
          
+         //#iteration 1:
+         /*
+         for (Pixel spot : pixels)
+         {
+            grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
+            if (grey <= 50) {
+                spot.setBlue(52); 
+                spot.setGreen(25);
+                spot.setRed(1);
+            } else if (grey <= 130) {
+                spot.setBlue(40);
+                spot.setGreen(16);
+                spot.setRed(118);
+            } else if (grey <= 180) {
+                spot.setBlue(106); 
+                spot.setGreen(167); 
+                spot.setRed(208); 
+            } else if (grey <= 200) {
+                spot.setBlue(157); 
+                spot.setGreen(213); 
+                spot.setRed(178);  
+            } else {
+                spot.setBlue(226); 
+                spot.setGreen(255);
+                spot.setRed(244); 
+            }
+         }
+         me.explore(); 
+         me.write("images/sf3.jpg");
+         
+         */
+         
+         //#iteration 2: 
+         
+         /*
+         for (Pixel spot : pixels)
+         {
+            grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
+            if (grey <= 60) {
+                spot.setBlue(28); 
+                spot.setGreen(32);
+                spot.setRed(44);
+            } else if (grey <= 120) {
+                spot.setBlue(74);
+                spot.setGreen(34);
+                spot.setRed(82);
+            } else if (grey <= 170) {
+                spot.setBlue(145); 
+                spot.setGreen(138); 
+                spot.setRed(0); 
+            } else {
+                spot.setBlue(202); 
+                spot.setGreen(221);
+                spot.setRed(227); 
+            }
+         }
+         me.explore(); 
+         me.write("images/sf4.jpg");
+         
+         */
+         
+         //#FINAL
+         
+         
          for (Pixel spot : pixels)
          {
             grey = (spot.getBlue() + spot.getRed() + spot.getGreen())/3;
@@ -136,5 +204,6 @@ public class SheparFaireyLab
          }
          me.explore(); 
          me.write("images/sf5.jpg");
+         
     }  
 }
