@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=poster
+comment0.text=\n\ lily\ jia's\ poster\ project\ \n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=pic
+comment2.target=void\ mirrorY(Picture)
+comment3.params=pic
+comment3.target=void\ mirrorX(Picture)
+numComments=4
