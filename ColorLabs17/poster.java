@@ -9,10 +9,22 @@ public class poster
     public static void main (String [] args) 
     {
         Picture poster = new Picture("images/bird.jpg");
+        int width = poster.getWidth() / 3; 
+        int length = poster.getHeight() / 2; 
         
+        Picture birdmirrorY = new Picture("images/birdog.jpg"); 
+        Picture birdmirrorX = new Picture("images/birdog.jpg"); 
+        Picture blueBird = new Picture("images/birdog.jpg"); 
+        Picture swirl = new Picture("images/birdog.jpg"); 
+        Picture recurse = new Picture("images/birdog.jpg"); 
+        Picture halfbird = new Picture("images/birdog.jpg"); 
+        
+        mirrorY(birdmirrorY); 
+        mirrorX(birdmirrorX); 
+        blueBird(blueBird); 
+        
+        addPic (birdmirrorY, poster, width, 0); 
         poster.explore(); 
-        
-        Picture bird1 = 
     }
     
     public static void addPic (Picture pic, Picture target, int x, int y)
