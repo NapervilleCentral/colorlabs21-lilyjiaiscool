@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=poster
-comment0.text=\n\ lily\ jia's\ poster\ project\ \n
+comment0.text=\r\n\ lily\ jia's\ poster\ project\ \r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment2.params=pic
-comment2.target=void\ mirrorY(Picture)
+comment2.params=pic\ target\ x\ y
+comment2.target=void\ addPic(Picture,\ Picture,\ int,\ int)
 comment3.params=pic
-comment3.target=void\ mirrorX(Picture)
-numComments=4
+comment3.target=void\ mirrorY(Picture)
+comment4.params=pic
+comment4.target=void\ mirrorX(Picture)
+comment5.params=pic
+comment5.target=void\ swirl(Picture)
+comment6.params=pic
+comment6.target=void\ blueBird(Picture)
+numComments=7

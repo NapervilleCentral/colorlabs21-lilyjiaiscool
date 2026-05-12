@@ -11,11 +11,25 @@ public class poster
         Picture poster = new Picture("images/bird.jpg");
         
         poster.explore(); 
+        
+        Picture bird1 = 
     }
     
-    public static void addPic (Picture pic)
+    public static void addPic (Picture pic, Picture target, int x, int y)
     {
+        Pixel sourcePix = null;
+        Pixel targetPix = null; 
         
+        for (int sourceX = 0, targetX = x; sourceX< target.getWidth(); sourceX++)
+        {
+            for (int sourceY = 0, targetY = y; sourceY< target.getHeight(); sourceY++)
+            {
+                //set the target pix color of the source pix
+                sourcePix = pic.getPixel(sourceX,sourceY);
+                targetPix = target.getPixel(targetX,targetY);
+                targetPix.setColor(sourcePix.getColor());
+            }//loop
+        }
     }
     
     public static void mirrorY (Picture pic)
@@ -59,6 +73,15 @@ public class poster
     
     public static void blueBird (Picture pic)
     {
+        Pixel [] pixels; 
+        pixels = pic.getPixels(); 
+        int blue; 
         
+        for (Pixel spot : pixels)
+        {
+            blue = spot.getBlue(); 
+            blue *= 1.25; 
+            spot.setBlue(blue); 
+        }
     }
 }
