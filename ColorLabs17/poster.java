@@ -8,22 +8,29 @@ public class poster
 {
     public static void main (String [] args) 
     {
-        Picture poster = new Picture("images/bird.jpg");
-        int width = poster.getWidth() / 3; 
-        int length = poster.getHeight() / 2; 
+        Picture pic = new Picture("images/bird.png");
+        int width = pic.getWidth(); 
+        int length = pic.getHeight(); 
         
-        Picture birdmirrorY = new Picture("images/birdog.jpg"); 
-        Picture birdmirrorX = new Picture("images/birdog.jpg"); 
-        Picture blueBird = new Picture("images/birdog.jpg"); 
-        Picture swirl = new Picture("images/birdog.jpg"); 
-        Picture recurse = new Picture("images/birdog.jpg"); 
-        Picture halfbird = new Picture("images/birdog.jpg"); 
+        Picture poster = new Picture(width * 3, length * 2); 
+        
+        Picture birdmirrorY = new Picture("images/bird.png"); 
+        Picture birdmirrorX = new Picture("images/bird.png"); 
+        Picture blueBird = new Picture("images/bird.png"); 
+        Picture swirl = new Picture("images/bird.png"); 
+        Picture recurse = new Picture("images/bird.png"); 
         
         mirrorY(birdmirrorY); 
         mirrorX(birdmirrorX); 
         blueBird(blueBird); 
         
-        addPic (birdmirrorY, poster, width, 0); 
+        addPic (pic, poster, 0, 0); 
+        addPic(birdmirrorY, poster, width, 0);     
+        addPic(birdmirrorX, poster, width*2, 0); 
+        addPic (blueBird, poster, 0, length); 
+        addPic(swirl, poster, width, length);     
+        addPic(recurse, poster, width*2, length); 
+        
         poster.explore(); 
     }
     
@@ -32,14 +39,18 @@ public class poster
         Pixel sourcePix = null;
         Pixel targetPix = null; 
         
-        for (int sourceX = 0, targetX = x; sourceX< target.getWidth(); sourceX++)
+        for (int sourceX = 0; sourceX < pic.getWidth(); sourceX++)
         {
-            for (int sourceY = 0, targetY = y; sourceY< target.getHeight(); sourceY++)
+            for (int sourceY = 0; sourceY< pic.getHeight(); sourceY++)
             {
-                //set the target pix color of the source pix
-                sourcePix = pic.getPixel(sourceX,sourceY);
-                targetPix = target.getPixel(targetX,targetY);
-                targetPix.setColor(sourcePix.getColor());
+                int targetX = x + sourceX;
+                int targetY = y + sourceY;
+                if (targetX < target.getWidth() && targetY < target.getHeight())
+                {
+                    sourcePix = pic.getPixel(sourceX,sourceY);
+                    targetPix = target.getPixel(targetX,targetY);
+                    targetPix.setColor(sourcePix.getColor());
+                }
             }//loop
         }
     }
@@ -92,7 +103,7 @@ public class poster
         for (Pixel spot : pixels)
         {
             blue = spot.getBlue(); 
-            blue *= 1.25; 
+            blue *= 1.75; 
             spot.setBlue(blue); 
         }
     }
