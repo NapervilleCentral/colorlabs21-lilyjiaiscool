@@ -23,6 +23,8 @@ public class poster
         mirrorY(birdmirrorY); 
         mirrorX(birdmirrorX); 
         blueBird(blueBird); 
+        swirl(swirl); 
+        recurse(recurse); 
         
         addPic (pic, poster, 0, 0); 
         addPic(birdmirrorY, poster, width, 0);     
@@ -91,7 +93,42 @@ public class poster
     
     public static void swirl (Picture pic)
     {
+        Picture temp = new Picture(pic); 
+        int centerX = pic.getWidth() / 2; 
+        int centerY = pic.getHeight() / 2; 
+        double swirlFactor = .05; 
         
+        for (int x = 0; x < pic.getWidth(); x++)
+        {
+            for (int y = 0; y < pic.getHeight() ; y++)
+            {
+                
+            }
+        }
+    }
+    
+    public static void recurse(Picture pic)
+    {
+        Picture temp = new Picture(pic); 
+        int width = pic.getWidth() / 2; 
+        int height = pic.getHeight() / 2; 
+        
+        if (width <= 100) return; 
+        
+        for (int x = 0; x < width; x+=2)
+        {
+            for (int y = 0; y < height; y+=2)
+            {
+                int newX = (int)((double)x / width * temp.getWidth());
+                int newY = (int)((double)y / height * temp.getHeight());
+    
+                Pixel source = temp.getPixel(newX, newY);
+                Pixel target = pic.getPixel(x, y);
+                target.setColor(source.getColor());
+            }
+        }
+        
+        recurse(pic);
     }
     
     public static void blueBird (Picture pic)
