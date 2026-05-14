@@ -34,6 +34,7 @@ public class poster
         addPic(recurse, poster, width*2, length); 
         
         poster.explore(); 
+        poster.write("images/poster.jpg");
     }
     
     public static void addPic (Picture pic, Picture target, int x, int y)
@@ -112,8 +113,16 @@ public class poster
                 int dx = x - x0 ;
                 int dy = y - y0; 
                 double distance = Math.sqrt(dx*dx + dy*dy); 
-                double theta = distance * Math.PI * .01;
-                
+                double theta = .01 * distance * Math.PI;
+                int polarX = (int)(x0 + dx*Math.cos(theta));
+                int polarY= (int)(y0 + dy*Math.sin(theta));
+            
+                if (polarX >= 0 && polarX < pic.getWidth() && polarY>= 0 && polarY < pic.getHeight())
+                {
+                    Pixel og = temp.getPixel(polarX, polarY); 
+                    Pixel newthing = pic.getPixel(x,y); 
+                    newthing.setColor(og.getColor());
+                }
             }
         }
     }
