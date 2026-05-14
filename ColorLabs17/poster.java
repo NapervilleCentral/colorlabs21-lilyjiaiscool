@@ -91,17 +91,28 @@ public class poster
         }
     }
     
+    /**
+     * outline
+     * - find center
+     * - the angle it rotates is based on how far it is from the center to get the tiedye swirl 
+     * - multiply x by cos of angle and y by sin of angle to get new point
+     * - copy over
+     */
     public static void swirl (Picture pic)
     {
         Picture temp = new Picture(pic); 
-        int centerX = pic.getWidth() / 2; 
-        int centerY = pic.getHeight() / 2; 
-        double swirlFactor = .05; 
+        
+        int x0 = pic.getWidth() / 2; //to find center
+        int y0 = pic.getHeight() / 2; 
         
         for (int x = 0; x < pic.getWidth(); x++)
         {
             for (int y = 0; y < pic.getHeight() ; y++)
             {
+                int dx = x - x0 ;
+                int dy = y - y0; 
+                double distance = Math.sqrt(dx*dx + dy*dy); 
+                double theta = distance * Math.PI * .01;
                 
             }
         }

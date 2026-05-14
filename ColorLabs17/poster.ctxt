@@ -11,6 +11,7 @@ comment4.params=pic
 comment4.target=void\ mirrorX(Picture)
 comment5.params=pic
 comment5.target=void\ swirl(Picture)
+comment5.text=\n\ outline\n\ -\ find\ center\n\ -\ the\ angle\ it\ rotates\ is\ based\ on\ how\ far\ it\ is\ from\ the\ center\ to\ get\ the\ tiedye\ swirl\ \n\ -\ multiply\ x\ by\ cos\ of\ angle\ and\ y\ by\ sin\ of\ angle\ to\ get\ new\ point\n\ -\ copy\ over\n
 comment6.params=pic
 comment6.target=void\ recurse(Picture)
 comment7.params=pic\ width\ height
