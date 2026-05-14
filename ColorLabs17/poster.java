@@ -109,26 +109,23 @@ public class poster
     
     public static void recurse(Picture pic)
     {
-        Picture temp = new Picture(pic); 
-        int width = pic.getWidth() / 2; 
-        int height = pic.getHeight() / 2; 
-        
+        recurseHelper(pic, pic.getWidth(), pic.getHeight());
+    }
+    
+    public static void recurseHelper(Picture pic, int width, int height)
+    {
         if (width <= 100) return; 
         
-        for (int x = 0; x < width; x+=2)
-        {
-            for (int y = 0; y < height; y+=2)
+        Picture temp = new Picture(pic); 
+        for (int x = 0; x<width /2; x++) {
+            for (int y = 0; y < height/2; y++)
             {
-                int newX = (int)((double)x / width * temp.getWidth());
-                int newY = (int)((double)y / height * temp.getHeight());
-    
-                Pixel source = temp.getPixel(newX, newY);
-                Pixel target = pic.getPixel(x, y);
-                target.setColor(source.getColor());
+                Color recurse = temp.getPixel(2*x, 2*y).getColor();
+                pic.getPixel(x , y).setColor(recurse); 
             }
         }
         
-        recurse(pic);
+        recurseHelper(pic, width / 2, height / 2); 
     }
     
     public static void blueBird (Picture pic)
